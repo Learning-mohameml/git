@@ -95,6 +95,16 @@ Il existe principalement deux types de fusion des branches dans Git : la fusion 
 
    Cela dit à Git d'effectuer la fusion Fast-Forward uniquement si cela est possible sans créer de nouveaux commits de fusion. Si la fusion Fast-Forward n'est pas possible (par exemple, si la branche que vous souhaitez fusionner a eu des nouveaux commits), Git affichera un message d'erreur et vous devrez utiliser la fusion standard avec commit de fusion.
 
+- **Avantages:**
+
+   1. **Historique linéaire :** 
+      - Lorsque vous effectuez une fusion "fast-forward", l'historique des commits apparaît de manière linéaire , sans devoir créer un commit de fusion supplémentaire. Cela rend l'historique du projet plus propre et plus facile à suivre.
+      
+      - **exemple :**
+         Lorsque vous effectuez une fusion ``fast-forward`` de la branche ``feature`` vers ``master``, l'historique de commits de la branche ``feature`` sera inclus directement dans la branche ``master`` 
+
+   2. **Pas de commits de fusion inutiles :** Étant donné que la fusion "fast-forward" crée un historique linéaire sans commits de fusion supplémentaires, cela évite la création de commits inutiles dans l'historique du projet. Cela est particulièrement utile lorsque vous fusionnez des branches temporaires ou des branches de fonctionnalités.
+
 
 
 
@@ -146,7 +156,7 @@ Le commit de fusion ``F`` a deux parents, ``C`` et ``E``, indiquant que les deux
 >N'oubliez pas que si des modifications ont été apportées aux mêmes parties des fichiers dans les deux branches, cela peut entraîner des conflits, et vous devrez les résoudre manuellement avant de finaliser la fusion.
 
 
-
+![image](images/diff_ff_et_noff.jpeg)
 
 
 ### 3.3 les options de ``git merge :``
